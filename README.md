@@ -40,9 +40,31 @@ Affiche la liste des conteneurs en cours d'exécution :
 ```c
 docker ps
 ```
+voir les problemes : 
+
+```c
+docker logs
+```
 
 Supprimer toutes les images
 
 ```c
 docker rmi -f $(docker images -aq)
 ```
+**Etapes**
+
+Si tu as fini le Dockfile pour nginx
+tu tape : 
+docker build -t nginx .
+docker images 
+docker run -d =p 443:443 --name nginx-container nginx 
+
+Si tu atteris sur :
+Warning: Potential Security Risk Ahead
+clique sur avanced puis prendre le risk 
+
+si tu atteris sur :
+
+
+
+
