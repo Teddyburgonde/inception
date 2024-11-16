@@ -1,7 +1,3 @@
-run avant 
-Ok maintenant place au TSL !
-# tmp
-
 **Mots-clefs Dockerfile**
 
 FROM Indiquer à Docker sous quel OS doit tourner votre VM. 
@@ -63,7 +59,10 @@ Si tu atteris sur :
 Warning: Potential Security Risk Ahead
 clique sur avanced puis prendre le risk 
 
-si tu atteris sur :
+Si tu atteris sur :
+![Screenshot from 2024-11-16 11-30-28](https://github.com/user-attachments/assets/cedd2ba3-3b1f-4b51-a56f-0e76a89f986c)
+
+Felicitations !!! Container nginx est fini ! =)
 
 
 
