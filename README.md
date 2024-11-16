@@ -41,12 +41,18 @@ voir les problemes :
 ```c
 docker logs
 ```
+Supprimer tout les docker
+
+```c
+docker rm -f $(docker ps -aq)
+```
 
 Supprimer toutes les images
 
 ```c
 docker rmi -f $(docker images -aq)
 ```
+
 **Etapes**
 
 Si tu as fini le Dockfile pour nginx
