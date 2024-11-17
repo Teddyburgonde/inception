@@ -5,12 +5,13 @@ RUN	apt-get update && \
  	apt-get install -y  mariadb-server && \
 	rm -rf /var/lib/apt/lists/*
 
-COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/
+COPY	tools/mariadb.sh /mariadb.sh
 
-COPY	mariadb.sh /mariadb.sh
 
-RUN	chown -R mysql:mysql /var/lib/mysql
+RUN	chmod +x /mariadb.sh && \
+    	mkdir -p /run/mysqld && \
+   	chown -R mysql:mysql /var/lib/mysql
 
-RUN	mkdir /run/mysqld && chmod +x /mariadb.sh
+USER	mysql
 
-CMD	["/mariadb.sh"]
+ENTRYPOINT	["/mariadb.sh"]

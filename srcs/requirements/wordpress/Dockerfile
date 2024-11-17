@@ -1,6 +1,9 @@
 FROM	debian:bullseye
-RUN	apt-get update -y
+
+RUN	apt update && apt install -y php7.4-fpm ph7.4
+
 RUN	apt-get upgrade -y
+
 RUN	apt-get -y install wget 
 RUN	apt-get install -y php7.3 \
 	php-fpm \
