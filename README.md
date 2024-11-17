@@ -53,6 +53,17 @@ Supprimer toutes les images
 docker rmi -f $(docker images -aq)
 ```
 
+Verifier mariadb 
+
+Aller dans le dossier srcs 
+docker run --env-file .env -d --name mariadb mariadb
+puis docker ps 
+docker run --env-file .env -d --name mariadb mariadb
+puis
+docker logs mariadb
+
+
+
 **Etapes**
 
 Si tu as fini le Dockfile pour nginx

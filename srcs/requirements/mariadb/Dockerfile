@@ -1,17 +1,19 @@
-FROM	debian:bullseye
+FROM debian:bullseye
 
-RUN	apt-get update && \
-	apt-get upgrade -y && \	
- 	apt-get install -y  mariadb-server && \
-	rm -rf /var/lib/apt/lists/*
+# Installer MariaDB
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y mariadb-server && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY	tools/mariadb.sh /mariadb.sh
+# Copier le script mariadb.sh
+COPY tools/mariadb.sh /mariadb.sh
 
+# Rendre le script exécutable
+RUN chmod +x /mariadb.sh
 
-RUN	chmod +x /mariadb.sh && \
-    	mkdir -p /run/mysqld && \
-   	chown -R mysql:mysql /var/lib/mysql
+# Définir l'utilisateur root pour éviter les problèmes de permissions
+USER root
 
-USER	mysql
+ENTRYPOINT ["/mariadb.sh"]
 
-ENTRYPOINT	["/mariadb.sh"]
