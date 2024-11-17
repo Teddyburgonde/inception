@@ -62,6 +62,10 @@ docker run --env-file .env -d --name mariadb mariadb
 puis
 docker logs mariadb
 
+**Verifier le docker compose** 
+docker compose up -d
+
+
 
 
 **Etapes**
