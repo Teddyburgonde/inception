@@ -1,37 +1,68 @@
-version: '3.8'
-
 services:
   mariadb:
-    image: mariadb:latest
+    build: requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
     volumes:
-      - ./data/db:/var/lib/mysql
-    ports:
-      - "3306:3306"
+      - database:/var/lib/mysql
     restart: always
-    environment:
-      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
-      MARIADB_DATABASE: ${MARIADB_DATABASE}
-      MARIADB_USER: ${MARIADB_USER}
-      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    networks:
+      - inception
 
   wordpress:
-    image: wordpress:latest
+    build: requirements/wordpress
     container_name: wordpress
     depends_on:
       - mariadb
     env_file:
       - .env
     volumes:
-      - ./html:/var/www/html
-    ports:
-      - "8080:80"
+      - wordpress:/var/www/html
     restart: always
     environment:
       WORDPRESS_DB_HOST: mariadb:3306
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
       WORDPRESS_DB_USER: ${MARIADB_USER}
       WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
+    networks: 
+      - inception
+    expose:
+      - "9000"
+
+  nginx:
+    container_name: nginx
+    build: requirements/nginx
+    depends_on:
+      - wordpress
+    env_file:
+      - .env
+    volumes:
+      - ./srcs/nginx/conf:/etc/nginx/conf.d
+      - ./srcs/nginx/certs:/etc/nginx/certs
+      - wordpress:/var/www/html
+    ports:
+      - "443:443"
+    restart: always
+    networks:
+      - inception
+
+networks:
+  inception:
+    driver: bridge
+
+volumes:
+  database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/tebandam/data/mysql
+
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/tebandam/data/wordpress
 
