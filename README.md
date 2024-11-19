@@ -53,6 +53,14 @@ Supprimer toutes les images
 docker rmi -f $(docker images -aq)
 ```
 
+supprimer 
+```c
+sudo rm -rf mysql/* wordpress/*      
+```
+
+se connecter a un compte wordpress
+https://tebandam.42.fr/wp-login.php
+
 Verifier mariadb 
 
 Aller dans le dossier srcs 
