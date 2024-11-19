@@ -1,12 +1,13 @@
 #!/bin/bash
 
+echo if mysqladmin ping -h "${WORDPRESS_DB_HOST}" -u "${MARIADB_USER}" "--password=${MARIADB_PASSWORD}" --silent
 # Créer le répertoire pour le PID de PHP-FPM
 mkdir -p /run/php
 
 # Attendre que MariaDB soit disponible
 echo "Waiting for MariaDB to be available..."
 for i in {1..60}; do
-    if mysqladmin ping -h ${WORDPRESS_DB_HOST} --silent; then
+    if mysqladmin ping -h "${WORDPRESS_DB_HOST}" -u "${MARIADB_USER}" "--password=${MARIADB_PASSWORD}" --silent; then
         echo "MariaDB is up."
         break
     else
@@ -17,11 +18,10 @@ done
 
 cd /var/www/html
 
-# Supprimer les anciens fichiers WordPress s'ils sont présents
 if [ -f wp-config.php ]; then
-    echo "Removing existing WordPress files..."
-    rm -rf wp-admin wp-content wp-includes wp-config.php
-fi
+	echo "wordpress already installed"
+else
+
 
 # Télécharger WordPress
 if [ ! -f /usr/local/bin/wp ]; then
@@ -52,10 +52,11 @@ wp core install \
     --allow-root
 
 echo "Creating additional WordPress user..."
-wp user create ${WORDPRESS_USER} ${WORDPRESS_EMAIL} --role=subscriber --user_pass=${WORDPRESS_PASSWORD} --allow-root
+wp user create ${WORDPRESS_USER} ${WORDPRESS_EMAIL} --role=author --user_pass=${WORDPRESS_PASSWORD} --allow-root
 
 chmod -R 775 wp-content
 
+fi
 # Démarrer PHP-FPM
-php-fpm7.4 -F
+exec php-fpm7.4 -F
 

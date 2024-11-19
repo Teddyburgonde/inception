@@ -21,7 +21,7 @@ services:
       - wordpress:/var/www/html
     restart: always
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: mariadb
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
       WORDPRESS_DB_USER: ${MARIADB_USER}
       WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
@@ -38,8 +38,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./srcs/nginx/conf:/etc/nginx/conf.d
-      - ./srcs/nginx/certs:/etc/nginx/certs
       - wordpress:/var/www/html
     ports:
       - "443:443"
