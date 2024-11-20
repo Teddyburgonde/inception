@@ -1,5 +1,5 @@
 # Variables
-COMPOSE_FILE = srcs/docker-compose.yml
+COMPOSE_FILE = docker-compose.yml
 
 # Commande par défaut : build et démarrage
 all: up
