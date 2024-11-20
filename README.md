@@ -55,10 +55,17 @@ docker rmi -f $(docker images -aq)
 
 supprimer 
 ```c
+/home/tebandam/data
 sudo rm -rf mysql/* wordpress/*      
 ```
 
+Lancer le docker compose
+```c
+ docker compose up --build   
+```
+
 se connecter a un compte wordpress
+https://localhost/
 https://tebandam.42.fr/wp-login.php
 
 Verifier mariadb 
