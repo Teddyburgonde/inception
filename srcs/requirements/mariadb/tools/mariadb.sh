@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Vérifie si le répertoire /run/mysqld existe, sinon le crée avec les bons droits
+# see if mysql directory exists
 if [ -d "/run/mysqld" ]; then
     echo "[i] mysqld already present, skipping creation"
     chown -R mysql:mysql /run/mysqld || true
@@ -11,21 +11,22 @@ else
     chmod 755 /run/mysqld
 fi
 
-# Vérifie si la base de données MySQL est déjà initialisée
+# Checks if MySQL database is already initialized
 if [ -d "/var/lib/mysql/${MARIADB_DATABASE}" ]; then
     echo "[i] MySQL directory already present, skipping creation"
 else
     echo "[i] Initializing database..."
     chown -R mysql:mysql /var/lib/mysql
 
-    # Créer un fichier temporaire pour initialiser la base de données
+# Create a temportaire file to initialize the database 
     tfile=$(mktemp)
     if [ ! -f "$tfile" ]; then
         echo "Failed to create temp file"
         exit 1
     fi
 
-    # Ajouter les commandes SQL d'initialisation
+    # Configuration database
+    # Create User
     cat << EOF > $tfile
 USE mysql;
 FLUSH PRIVILEGES;
@@ -37,12 +38,12 @@ GRANT ALL PRIVILEGES ON ${MARIADB_DATABASE}.* TO '${MARIADB_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
 
-    # Démarrer MariaDB temporairement pour exécuter le script d'initialisation
+    #Initialize database
     echo "[i] Starting temporary MariaDB server..."
     /usr/sbin/mysqld --user=mysql --bootstrap < $tfile
     rm -f $tfile
 fi
 
 echo "[i] MariaDB setup complete. Starting MariaDB server..."
-# Démarrer MariaDB en mode normal
+# run database
 exec /usr/sbin/mysqld --user=mysql --console --skip-networking=0 --bind-address=0.0.0.0
