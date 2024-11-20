@@ -1,0 +1,32 @@
+Informations general :
+
+Wordpress envoie une requete a la base de donner de mariadb 
+et mariadb lui envoie une reponse. 
+
+
+mariadb/Dockerfile 
+Permet de lancer la base de donnee maraidb
+
+FROM debian:bullseye 
+Dis sur quel system d'exploitation va etre lancer l'image de mariadb.
+
+RUN apt-get update && \ // liste les paquets qui doivent etre mis a jours
+    apt-get upgrade -y && \ // mis a jour 
+    apt-get install -y mariadb-server && \ // install le server mariadb 
+    rm -rf /var/lib/apt/lists/* Permet de supprimer tout les fichiers inutiles.
+
+COPY tools/mariadb.sh /mariadb.sh
+Fais une copie de mariadb.sh (Fichier de configuration de maraidb et la colle dans la racine dans le docker image). Cela permet que c'est mon propre script qui sera lancer.
+
+RUN chmod +x /mariadb.sh
+Donne l'autorisation au script.
+
+
+USER root
+Pour qu'on ne me demande pas les droits a la chaque fois. 
+
+ENTRYPOINT ["/mariadb.sh"] 
+Execute le fichier mariadb.sh 
+
+
+
