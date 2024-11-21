@@ -1,10 +1,11 @@
 #!/bin/bash
 
+# Check if MariaDB is accessible using mysqladmin
 echo if mysqladmin ping -h "${WORDPRESS_DB_HOST}" -u "${MARIADB_USER}" "--password=${MARIADB_PASSWORD}" --silent
-# Créer le répertoire pour le PID de PHP-FPM
+
 mkdir -p /run/php
 
-# Attendre que MariaDB soit disponible
+# to wait until MariaDB is available before proceeding
 echo "Waiting for MariaDB to be available..."
 for i in {1..60}; do
     if mysqladmin ping -h "${WORDPRESS_DB_HOST}" -u "${MARIADB_USER}" "--password=${MARIADB_PASSWORD}" --silent; then
@@ -23,7 +24,7 @@ if [ -f wp-config.php ]; then
 else
 
 
-# Télécharger WordPress
+# Download wordPress files 
 if [ ! -f /usr/local/bin/wp ]; then
     echo "Downloading WP-CLI..."
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -57,6 +58,6 @@ wp user create ${WORDPRESS_USER} ${WORDPRESS_EMAIL} --role=author --user_pass=${
 chmod -R 775 wp-content
 
 fi
-# Démarrer PHP-FPM
+# Start PHP-FPM
 exec php-fpm7.4 -F
 
