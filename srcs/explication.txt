@@ -42,5 +42,33 @@ else
 fi
 
 
+------------
+Docker
+```c
+Docker permet de creer , gerer et stocker des conteneurs. 
+Un conteneur est une unité legere qui contient tout ce qui est necésaire pour executer une application.
+```
 
+Docker compose 
+```c
+Docker Compose est un outil qui permet de définir et
+gérer plusieurs conteneurs dans un fichier YAML.
+```
+
+La différence entre une image Docker utilisée avec Docker Compose et sans Docker Compose.
+
+```c
+Sans docker compose on gere chaque image manuellement et individuelement.
+```
+
+Docker vs VM
+```c
+Plus léger : Docker utilise moins de ressources 
+que les VMs car il partage le noyau du système hôte.
+```
+
+```c
+Une structure claire permet de séparer les fichiers
+C'est mieux d'avoir separer les choses comme cela car chaque service est dans un dossier.
+```
 
