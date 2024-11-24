@@ -177,10 +177,13 @@ https://tebandam.42.fr/wp-login.php
 ## Verifier mariadb 
 
 Aller dans le dossier srcs 
+<br>
 docker run --env-file .env -d --name mariadb mariadb
 puis docker ps 
+<br>
 docker run --env-file .env -d --name mariadb mariadb
 puis
+<br>
 docker logs mariadb
 
 **Verifier le docker compose** 
@@ -190,7 +193,18 @@ docker compose up -d
 **Comment entrer dans la database**
 <br>
 
+## Entrer dans mariadb
+Aller dans le dossier mariadb
+<br>
+docker exec -it mariadb bash
+<br>
+mysql -u root -p
+<br>
+SHOW DATABASES;
+<br>
+USE <name>
+<br>
+SHOW TABLES;
 
-
-
+<br>
 
