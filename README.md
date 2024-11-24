@@ -87,11 +87,12 @@ CMD ["nginx", "-g", "daemon off;"] // Exécute Nginx en mode non-démon pour que
 ```
 <br>
 
-Si tu as fini le Dockfile et le fichier  de configuration pour nginx
+Si tu as fini le Dockfile et le fichier de configuration pour nginx
+<br>
 tu tape : 
 docker build -t nginx .
 docker images 
-docker run -d =p 443:443 --name nginx-container nginx 
+docker run -d -p 443:443 --name nginx-container nginx
 
 Si tu atteris sur : <br>
 Warning: Potential Security Risk Ahead
