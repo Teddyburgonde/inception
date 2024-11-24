@@ -1,8 +1,8 @@
-<p align="center">
+<h1 align="center">
 
 ### 🔴 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 🔴 😎👌🔥
 
-</p>
+</h1>
 
 
 **Par où commencer ?**
