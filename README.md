@@ -1,8 +1,9 @@
 <div align="center">
-### 🔴 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 🔴 😎👌🔥
+🔴 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 🔴 😎👌🔥
 </div>
 
 
+<br>
 **Par où commencer ?** 🛣️
 
 Docker expliqué en 5 minutes =)
