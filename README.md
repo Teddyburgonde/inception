@@ -22,6 +22,18 @@ Ici strictement aucune improvisation , suivez ce modele et vous aurez aucun souc
 ![Screenshot from 2024-11-24 09-12-33](https://github.com/user-attachments/assets/b255ed98-da71-4837-8276-03b67095d7ae)
 <br>
 
+## **Setup**
+
+Installer une VM avec :
+
+> **⚠️ Important : Pour des raisons de performance, les conteneurs doivent être construits à partir de :**
+>
+> **🟥 L’avant-dernière version stable d’Alpine**  
+> **🟥 L’avant-dernière version stable de Debian**
+
+Moi, j'ai choisi **Debian**.
+
+
 
 **Mots-clefs Dockerfile**
 
