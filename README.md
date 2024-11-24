@@ -174,7 +174,7 @@ https://tebandam.42.fr/wp-login.php
 <br>
 <br>
 
-## **Verifier mariadb 
+## Verifier mariadb 
 
 Aller dans le dossier srcs 
 docker run --env-file .env -d --name mariadb mariadb
