@@ -1,4 +1,4 @@
-⚠️ EN CONSTRUCTION , derniere mise a jour dimanche 24 novembre 9h27
+⚠️ EN CONSTRUCTION , derniere mise a jour dimanche 24 novembre 11h26
 
 <div align="center">
 🔴 GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42 🔴 😎👌🔥
