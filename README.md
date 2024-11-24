@@ -1,4 +1,9 @@
-**GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42**
+<div align="center" style="color: white; font-size: 24px;">
+
+**GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 😎👌🔥
+
+</div>
+
 
 **Par où commencer ?**
 
