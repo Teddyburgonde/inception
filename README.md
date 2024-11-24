@@ -9,11 +9,6 @@
 
 **Par où commencer ?** 🤔
 <br>
-
-![Screenshot from 2024-11-24 09-12-33](https://github.com/user-attachments/assets/b255ed98-da71-4837-8276-03b67095d7ae)
-
-
-<br>
 Docker expliqué en 5 minutes =)
 <br>
 https://www.youtube.com/watch?v=mspEJzb8LC4
@@ -22,9 +17,8 @@ https://www.youtube.com/watch?v=mspEJzb8LC4
 <br>
 Ici strictement aucune improvisation , suivez ce modele et vous aurez aucun soucis. 
 <br>
-![Screenshot from 2024-11-24 09-12-33](https://github.com/user-attachments/assets/70799ab0-58c1-4a99-8c33-bdda21ecc3a9)
-
-
+![Screenshot from 2024-11-24 09-12-33](https://github.com/user-attachments/assets/b255ed98-da71-4837-8276-03b67095d7ae)
+<br>
 
 
 **Mots-clefs Dockerfile**
