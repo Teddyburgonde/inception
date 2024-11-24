@@ -109,6 +109,7 @@ Felicitations !!! Container nginx est fini ! =)
 
 <br>
 2. Fais le dockerfile de mariadb et le fichier de configuration.
+<br>
 3. Fais le dockerfile de wordpress et le fichier de configuration.
 
 ## **Commandes**
