@@ -58,36 +58,36 @@ ENTRYPOINT Defini le programme principal que le conteneur executera toujours.
 <br>
 Je vous aide pour le premier Dockerfile mais pas les suivants !
 
-# Utilise l'image Debian Bullseye comme base
-FROM debian:bullseye
+```c
+FROM debian:bullseye //Utilise l'image Debian Bullseye comme base
 
-# Met à jour les paquets existants et installe nginx, vim et openssl
+// Met à jour les paquets existants et installe nginx, vim et openssl
 RUN apt update -y && apt upgrade -y && \ 
     apt install -y nginx vim openssl && \ 
-    mkdir -p /etc/nginx/ssl # Crée le dossier pour stocker les certificats SSL
+    mkdir -p /etc/nginx/ssl // Crée le dossier pour stocker les certificats SSL
 
-# Génère un certificat SSL auto-signé avec OpenSSL
+// Génère un certificat SSL auto-signé avec OpenSSL
 RUN openssl req -x509 -nodes \ 
-    -out /etc/nginx/ssl/inception.crt \ # Chemin du certificat généré
-    -keyout /etc/nginx/ssl/inception.key \ # Chemin de la clé privée générée
-    -subj "/C=FR/ST=NA/L=Angouleme/O=42/OU=42/CN=tebandam.42.fr/UID=tebandam" # Informations pour le certificat
+    -out /etc/nginx/ssl/inception.crt \ // Chemin du certificat généré
+    -keyout /etc/nginx/ssl/inception.key \ // Chemin de la clé privée générée
+    -subj "/C=FR/ST=NA/L=Angouleme/O=42/OU=42/CN=tebandam.42.fr/UID=tebandam" // Informations pour le certificat
 
-# Crée les répertoires nécessaires pour le fonctionnement de Nginx et le stockage des fichiers
+// Crée les répertoires nécessaires pour le fonctionnement de Nginx et le stockage des fichiers
 RUN mkdir -p /var/run/nginx /var/www/html
 
-# Copie le fichier de configuration personnalisé pour Nginx dans le conteneur
+// Copie le fichier de configuration personnalisé pour Nginx dans le conteneur
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
-# Définit les permissions pour le répertoire des fichiers web
-RUN chmod -R 755 /var/www/html && \ # Permet à tous de lire et exécuter les fichiers
-    chown -R www-data:www-data /var/www/html # Change le propriétaire pour www-data (utilisateur par défaut de Nginx)
+// Définit les permissions pour le répertoire des fichiers web
+RUN chmod -R 755 /var/www/html && \ // Permet à tous de lire et exécuter les fichiers
+    chown -R www-data:www-data /var/www/html // Change le propriétaire pour www-data (utilisateur par défaut de Nginx)
 
-# Définit la commande par défaut pour démarrer Nginx
-CMD ["nginx", "-g", "daemon off;"] # Exécute Nginx en mode non-démon pour que le conteneur reste actif
-
+// Définit la commande par défaut pour démarrer Nginx
+CMD ["nginx", "-g", "daemon off;"] // Exécute Nginx en mode non-démon pour que le conteneur reste actif
+```
 <br>
 
-Si tu as fini le Dockfile pour nginx
+Si tu as fini le Dockfile et le fichier  de configuration pour nginx
 tu tape : 
 docker build -t nginx .
 docker images 
