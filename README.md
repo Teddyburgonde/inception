@@ -1,3 +1,5 @@
+⚠️ EN CONSTRUCTION , mise a jour dimanche 24 novembre 9h27
+
 <div align="center">
 🔴 GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42 🔴 😎👌🔥
 </div>
