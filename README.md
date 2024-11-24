@@ -201,7 +201,7 @@ mysql -u root -p
 <br>
 SHOW DATABASES;
 <br>
-USE <name>
+USE nameofdata
 <br>
 SHOW TABLES;
 
