@@ -5,9 +5,6 @@
 Docker expliqué en 5 minutes =)
 https://www.youtube.com/watch?v=mspEJzb8LC4
 
-**Les bases**
-
-
 **Architecture de ton project**
 
 Ici strictement aucune improvisation , suivez ce modele et vous aurez aucun soucis. 
