@@ -36,7 +36,7 @@ Moi, j'ai choisi **Debian**.
 <br>
 
 
-##**Mots-clefs Dockerfile**
+## **Mots-clefs Dockerfile**
 
 FROM Indiquer à Docker sous quel OS doit tourner votre VM. 
 
@@ -48,7 +48,9 @@ EXPOSE Indique a Docker qu'elle port est utiliser par ce docker.
 
 ENTRYPOINT Defini le programme principal que le conteneur executera toujours.
 
-**Commandes**
+<br>
+<br>
+## **Commandes**
 
 Creer une image docker :
 
@@ -117,8 +119,6 @@ docker logs mariadb
 
 **Verifier le docker compose** 
 docker compose up -d
-
-
 
 
 **Etapes**
