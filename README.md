@@ -32,10 +32,11 @@ Installer une VM avec :
 > **🟥 L’avant-dernière version stable de Debian**
 
 Moi, j'ai choisi **Debian**.
+<br>
+<br>
 
 
-
-**Mots-clefs Dockerfile**
+##**Mots-clefs Dockerfile**
 
 FROM Indiquer à Docker sous quel OS doit tourner votre VM. 
 
