@@ -1,4 +1,4 @@
-<div align="center" style="color: white; font-size: 24px;">
+<div align="center" style="color: red; font-size: 24px;">
 
 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 😎👌🔥
 
