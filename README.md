@@ -190,7 +190,6 @@ docker logs mariadb
 docker compose up -d
 
 <br>
-**Comment entrer dans la database**
 <br>
 
 ## Entrer dans mariadb
