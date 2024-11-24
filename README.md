@@ -5,10 +5,11 @@
 
 <br>
 
-**Par où commencer ?** 🛣️
-
+**Par où commencer ?** 🤔
 
 ![docker](https://github.com/user-attachments/assets/33a4d1bb-1e4b-473c-b9b2-efe969c71307)
+
+<br>
 Docker expliqué en 5 minutes =)
 https://www.youtube.com/watch?v=mspEJzb8LC4
 
