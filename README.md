@@ -6,8 +6,10 @@
 <br>
 
 **Par où commencer ?** 🤔
+<br>
 
-![docker](https://github.com/user-attachments/assets/33a4d1bb-1e4b-473c-b9b2-efe969c71307)
+![Screenshot from 2024-11-24 09-12-33](https://github.com/user-attachments/assets/b255ed98-da71-4837-8276-03b67095d7ae)
+
 
 <br>
 Docker expliqué en 5 minutes =)
