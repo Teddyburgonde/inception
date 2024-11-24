@@ -1,9 +1,3 @@
-<div align="center" style="color: red; font-size: 24px;">
-
-**GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42**  😎👌🔥
-
-</div>
-
 <p align="center">
 
 ### 🔴 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 🔴 😎👌🔥
