@@ -51,6 +51,24 @@ ENTRYPOINT Defini le programme principal que le conteneur executera toujours.
 <br>
 <br>
 
+## **Etapes**
+
+Si tu as fini le Dockfile pour nginx
+tu tape : 
+docker build -t nginx .
+docker images 
+docker run -d =p 443:443 --name nginx-container nginx 
+
+Si tu atteris sur :
+Warning: Potential Security Risk Ahead
+clique sur avanced puis prendre le risk 
+
+Si tu atteris sur :
+![Screenshot from 2024-11-16 11-30-28](https://github.com/user-attachments/assets/cedd2ba3-3b1f-4b51-a56f-0e76a89f986c)
+
+Felicitations !!! Container nginx est fini ! =)
+
+
 ## **Commandes**
 
 Creer une image docker :
@@ -105,11 +123,15 @@ Lancer le docker compose
  docker compose up --build   
 ```
 
-se connecter a un compte wordpress
+Se connecter a un compte wordpress
+```c
 https://localhost/
 https://tebandam.42.fr/wp-login.php
+```
+<br>
+<br>
 
-Verifier mariadb 
+## **Verifier mariadb 
 
 Aller dans le dossier srcs 
 docker run --env-file .env -d --name mariadb mariadb
@@ -121,23 +143,6 @@ docker logs mariadb
 **Verifier le docker compose** 
 docker compose up -d
 
-
-**Etapes**
-
-Si tu as fini le Dockfile pour nginx
-tu tape : 
-docker build -t nginx .
-docker images 
-docker run -d =p 443:443 --name nginx-container nginx 
-
-Si tu atteris sur :
-Warning: Potential Security Risk Ahead
-clique sur avanced puis prendre le risk 
-
-Si tu atteris sur :
-![Screenshot from 2024-11-16 11-30-28](https://github.com/user-attachments/assets/cedd2ba3-3b1f-4b51-a56f-0e76a89f986c)
-
-Felicitations !!! Container nginx est fini ! =)
 
 
 
