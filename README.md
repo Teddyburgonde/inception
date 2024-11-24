@@ -4,6 +4,12 @@
 
 </div>
 
+<p align="center">
+
+### 🔴 **GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42** 🔴 😎👌🔥
+
+</p>
+
 
 **Par où commencer ?**
 
