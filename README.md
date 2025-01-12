@@ -1,5 +1,3 @@
-⚠️ EN CONSTRUCTION , derniere mise a jour dimanche 24 novembre 11h26
-
 <div align="center">
 🔴 GUIDE DE SURVIE POUR LE PROJET INCEPTION DE 42 🔴 😎👌🔥
 </div>
@@ -207,4 +205,170 @@ USE nameofdata;
 SHOW TABLES;
 
 <br>
+
+
+
+# Projet Inception - README
+
+## Introduction
+
+Le projet **Inception** vise à approfondir vos compétences en virtualisation et containerisation en utilisant **Docker** et **Docker Compose**. Vous allez créer une mini-infrastructure contenant plusieurs services isolés dans des conteneurs Docker.
+
+---
+
+## Structure des étapes
+
+### 1. **Préparation**
+
+1. Installez Docker et Docker Compose sur votre machine virtuelle (VM).
+2. Créez un répertoire de projet avec la structure suivante :
+   ```
+   ./
+   |-- Makefile
+   |-- srcs/
+       |-- docker-compose.yml
+       |-- .env
+       |-- requirements/
+           |-- mariadb/
+           |   |-- Dockerfile
+           |   |-- conf/
+           |-- nginx/
+           |   |-- Dockerfile
+           |   |-- conf/
+           |-- wordpress/
+               |-- Dockerfile
+               |-- conf/
+   ```
+3. Configurez un fichier **Makefile** pour automatiser la construction et le déploiement de vos conteneurs.
+
+---
+
+### 2. **Création des Services**
+
+#### a) **NGINX avec TLS**
+
+- Configurez un conteneur Docker pour **NGINX** avec TLS v1.2 ou v1.3.
+- Générez un certificat SSL auto-signé ou utilisez des outils comme **Let’s Encrypt**.
+- Exposez uniquement le port **443**.
+
+#### b) **MariaDB**
+
+- Créez un conteneur pour la base de données MariaDB.
+- Ajoutez deux utilisateurs : un administrateur (le nom d'utilisateur **ne doit pas contenir “admin”**) et un utilisateur standard.
+- Configurez un volume pour la persistance des données.
+
+#### c) **WordPress**
+
+- Installez WordPress dans un conteneur avec **php-fpm**.
+- Configurez un volume pour les fichiers du site WordPress.
+- Connectez WordPress à MariaDB.
+
+#### d) **Réseau Docker**
+
+- Créez un réseau Docker pour permettre la communication entre les conteneurs.
+- Configurez les services dans **docker-compose.yml** avec la directive `networks`.
+
+---
+
+### 3. **Configuration des Fichiers**
+
+#### Fichier `.env`
+
+Stockez vos variables d’environnement (par exemple, mots de passe, noms de domaine) dans un fichier `.env` :
+
+```env
+DOMAIN_NAME=votrelogin.42.fr
+MYSQL_USER=user
+MYSQL_PASSWORD=password
+MYSQL_ROOT_PASSWORD=rootpassword
+```
+
+**Note** : Ne stockez jamais de mots de passe directement dans vos fichiers Dockerfile.
+
+#### Dockerfiles
+
+Créez un **Dockerfile** pour chaque service (NGINX, MariaDB, WordPress) en respectant les bonnes pratiques Docker (pas de `tail -f`, pas de boucles infinies).
+
+#### docker-compose.yml
+
+- Configurez vos services dans **docker-compose.yml**.
+- Assurez-vous que les noms des images Docker correspondent à leurs services respectifs.
+
+#### Volumes
+
+- Configurez deux volumes :
+  - Un pour les données de MariaDB.
+  - Un pour les fichiers WordPress.
+- Montez les volumes dans le répertoire `/home/login/data/`.
+
+---
+
+### 4. **Test et Validation**
+
+1. Lancez vos conteneurs avec `docker-compose up`.
+2. Testez l’accès au site WordPress via votre domaine (exemple : `votrelogin.42.fr`).
+3. Vérifiez que les services redémarrent correctement en cas de crash.
+4. Testez la sécurité de vos certificats SSL (outils comme SSL Labs).
+
+---
+
+## Conseils et Bonnes Pratiques
+
+1. **Documentation** :
+
+   - Lisez la documentation Docker et Docker Compose.
+   - Apprenez à utiliser des outils comme OpenSSL pour gérer les certificats.
+
+2. **Organisation** :
+
+   - Gardez vos fichiers propres et bien structurés.
+   - Documentez vos configurations dans des fichiers `README` individuels pour chaque service.
+
+3. **Sécurité** :
+
+   - Utilisez des variables d’environnement pour toutes les informations sensibles.
+   - Configurez correctement les permissions des volumes.
+
+4. **Debugging** :
+
+   - Utilisez `docker logs` pour déboguer vos conteneurs.
+   - Testez vos configurations localement avant de les automatiser.
+
+---
+
+---
+
+## Commandes Utiles
+
+- Démarrer tous les conteneurs :
+
+  ```bash
+  docker-compose up --build
+  ```
+
+- Arrêter les conteneurs :
+
+  ```bash
+  docker-compose down
+  ```
+
+- Afficher les logs :
+
+  ```bash
+  docker logs <container_name>
+  ```
+
+- Accéder à un conteneur :
+
+  ```bash
+  docker exec -it <container_name> sh
+  ```
+
+---
+
+## Conclusion
+
+Ce projet est une excellente introduction à la virtualisation et à l’infrastructure moderne. Respectez les consignes, soyez organisé, et n’hésitez pas à chercher de l’aide dans la documentation ou à poser des questions à vos camarades. Bonne chance ! 🚀
+
+
 
