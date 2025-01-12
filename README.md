@@ -208,7 +208,7 @@ SHOW TABLES;
 
 
 
-# Projet Inception - README
+# Projet Inception
 
 ## Introduction
 
